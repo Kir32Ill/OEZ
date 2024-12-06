@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="sript.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+    <h1>Расчёт цены детали</h1> 
+    <div class="list">
+        <label for="material">Выберите материал детали</label>
+        <select id ="material" name="material" onChange="getMaterial()" required>
+            <option value="" disabled="disabled" selected="selected">Выбрать вариант</option>
+            <option value="Сталь">Сталь</option>
+            <option value="Медь">Медь</option>
+            <option value="Титан">Титан</option>
+        </select>
+    </div>
+    <div class="parameters">
+        <label for = "Diametr">Введите диаметр детали</label>
+        <input type="number" id="Diametr">
+        <br>
+        <label for = "High">Введите высоту детали</label>
+        <input type="number" id="High">
+    </div>
+    <div class="buttons">
+        <button id="submit">
+            Вычислить
+        </button>
+    </div>
+    <h3>Результат:</h3>
+    <p id="result">5</p>
+    </div>
 </body>
 </html>
