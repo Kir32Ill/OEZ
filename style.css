@@ -37,14 +37,17 @@ select{
     border-radius: 6px;
     font-size: 14px;
     margin-top:5px;
+    color:#555;
 }
 label{
     display: block;
     margin-bottom: 7px;
+    margin-top: 10px;
     font-size: 16px;
-    color:#666;
+    color:#555;
+    cursor:pointer;
 }
-input{
+input[type="number"]{
     width:200px;
     padding: 12px;
     border: 1px solid #ccc;
@@ -78,4 +81,24 @@ button{
     background-color: #e6f7ff;
     display:flex;
     
+}
+
+
+input[type="radio"]:checked + label{
+    font-weight: bold;
+    color: #007bff;
+}
+#radio{
+    display: flex;
+}
+#radio2{
+    margin-left: 30px;
+}
+#radio1:hover{
+    background-color: #e0e0e0;
+    cursor:pointer;
+}
+#radio2:hover{
+    background-color: #e0e0e0;
+    cursor:pointer;
 }
