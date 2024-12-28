@@ -1,34 +1,42 @@
-function getMaterial(){
+function getDetal(){
     const diametrOfDetail = document.getElementById("Diametr");
     const highOfDetail = document.getElementById("High");
     const variantOfDetail=myForm2.variant.value; 
     const submitBtn=document.getElementById("submit");
     const resultElement = document.getElementById('result');
+    const detal=document.getElementById('detal');
     const material=document.getElementById('material');
     const price = document.getElementById('Price');
     const radioButton=document.myForm2.variant;
     let priceOfKg=price.value;
-    let getMat = material.value;
+    let getType = detal.value;
+    let getMat=material.value;
     let di=+diametrOfDetail.value;
     let hi=+highOfDetail.value;
-    console.log(getMat);
-    console.log(variantOfDetail);
-    console.log(priceOfKg);
     let choosedVariant=1;
-    if(getMat==="Болт"){
+    let density=1;
+    console.log(getMat);
+    if(getMat=="Сталь")
+        density=2;
+    else if(getMat=="Титан")
+        density=3;
+    else if(getMat=="Латунь")
+        density=4;
+    console.log(density);
+    if(getType=="Болт"){
         if (variantOfDetail==="Круг"){
-            choosedVariant=calculateVolumeCircle(di/1000,hi/1000,priceOfKg);
+            choosedVariant=calculateVolumeCircle(di/1000,hi*10,density,priceOfKg);
         }else{
-            choosedVariant=calculateShestBolt(di,hi,priceOfKg);
+            choosedVariant=calculateShestBolt(di,hi,density,priceOfKg);
         }
-    }else if(getMat=="Гайка"){
+    }else if(getType=="Гайка"){
         if (variantOfDetail=="Круг"){
-            choosedVariant=calculateVolumeCircle(di/1000,hi/1000,priceOfKg);
+            choosedVariant=calculateVolumeCircle(di/1000,hi*10,density,priceOfKg);
         }else{
-            choosedVariant=calculateShestGaika(di,priceOfKg);
+            choosedVariant=calculateShestGaika(di,density,priceOfKg);
         }
     }else{
-        choosedVariant=calculateVolumeCircle(di/1000,hi/1000,priceOfKg);
+        choosedVariant=calculateVolumeCircle(di/1000,hi*10,density,priceOfKg);
     }
     submitBtn.onclick = function () {
         const result=choosedVariant.toFixed(3);
@@ -39,19 +47,17 @@ function getMaterial(){
         })
     }
 }
-function calculateVolumeCircle(diametr, high, price){
+function calculateVolumeCircle(diametr, high, density, price){
     
-    let volume=Math.PI *(diametr/2)**2 * high*2.45*price;
-    console.log(Math.PI *(diametr/2)**2 * high*2.45*price);
+    let volume=Math.PI *(diametr/2)**2 * high*density*price;
     return volume;
 }
-function calculateShestBolt(diametr, high,price){
-    let volume=(0.8*diametr+high)/1000*2.45*price;
+function calculateShestBolt(diametr, high, density,price){
+    let volume=(0.8*diametr+high)/1000*density*price;
     return volume;
 }
-function calculateShestGaika(diametr,price){
-    let volume=(0.8*diametr)/1000*2.45*price;
-    console.log(0.8*diametr)/1000;
+function calculateShestGaika(diametr, density, price){
+    let volume=(0.8*diametr)/1000*density*price;
     return volume;
 }
 

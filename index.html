@@ -11,12 +11,20 @@
     <div class="container">
     <h1>Расчёт цены детали</h1> 
     <div class="list">
-        <label for="material">Выберите тип детали</label>
-        <select id ="material" name="material" onChange="getMaterial()" required>
+        <label for="detal">Выберите тип детали</label>
+        <select id ="detal" name="detal" onChange="getDetal()" required>
             <option value="" disabled="disabled" selected="selected">Выбрать вариант</option>
             <option value="Болт">Болт</option>
             <option value="Гайка">Гайка</option>
             <option value="Шпилька">Шпилька</option>
+        </select>
+
+        <label for="material">Выберите материал детали</label>
+        <select id ="material" name="material" onChange="getDetal()" required>
+            <option value="" disabled="disabled" selected="selected">Выбрать вариант</option>
+            <option value="Сталь">Сталь</option>
+            <option value="Титан">Титан</option>
+            <option value="Латунь">Латунь</option>
         </select>
     </div>
     <div class="parameters">
@@ -29,7 +37,7 @@
         <label for = "Price">Введите стоимость материала, руб/1кг</label>
         <input type="number" id="Price">
         <div class="form_radio">
-            <form name="myForm2" id="radio" onchange="getMaterial()"  required>
+            <form name="myForm2" id="radio" onchange="getDetal()"  required>
                 <input type="radio" id="radio1" name="variant" value="Шестигранник" />
                 <label for = "radio1" class="radio1">Шестигранник</label>
                 <input type="radio" id="radio2" name="variant" value="Круг"/>
@@ -43,7 +51,7 @@
         </button>
     </div>
     <h3>Результат:</h3>
-    <p id="result">5</p>
+    <p id="result"></p>
     </div>
 </body>
 </html>
