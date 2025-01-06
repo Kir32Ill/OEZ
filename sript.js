@@ -31,7 +31,7 @@ function getDetal(){
         }
     }else if(getType=="Гайка"){
         if (variantOfDetail=="Круг"){
-            choosedVariant=calculateVolumeCircle(di/1000,hi*10,density,priceOfKg);
+            choosedVariant=calculateVolumeCircle(di/1000,hi,density,priceOfKg);
         }else{
             choosedVariant=calculateShestGaika(di,density,priceOfKg);
         }
